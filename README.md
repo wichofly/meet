@@ -31,11 +31,11 @@ As a user
 I should be able to “filter events by city”
 So that I can see the list of events that take place in that city
 
-- Sscenario 1: When user hasn't searched for a city, show upcoming events from all cities.
+- Scenario 1: When user hasn't searched for a city, show upcoming events from all cities.
   - **Given** user hasn’t searched for any city
   - **When** the user opens the app
   - **Then** the user should see a list of all upcoming events
-- Secenario 2: User should see a list of suggestions when they search for a city.
+- Scenario 2: User should see a list of suggestions when they search for a city.
   - **Given** the main page is open
   - **When** user starts typing in the city textbox
   - **Then** the user should see a list of cities (suggestions) that match what they’ve typed
@@ -52,16 +52,16 @@ As a user
 I should be able to “Show/Hide events detais”
 So that I can see the information of events of my interest and close it.
 
-- Sscenario 1: An event element is collapsed by default
+- Scenario 1: An event element is collapsed by default
   - **Given** the main page was opened. 
   - **When** nothing is selected
   - **Then** even detailss will collapse
 
-- Sscenario 2: User can expand an event to see its details
+- Scenario 2: User can expand an event to see its details
   - **Given** user clicked on an event button
   - **When** user wnat to know more details about the event
   - **Then** the details for the event will shown
-- Sscenario 3: User can collapse an event to hide its details
+- Scenario 3: User can collapse an event to hide its details
   - **Given** event details were opened
   - **When** the user clicks to close the event 
   - **Then** event details will be hidden
@@ -72,11 +72,11 @@ As a user
 I should be able to choose the events that interest me
 So that I can make a better decision on which one to attend.
 
-- Sscenario 1:  When user hasn’t specified a number, 32 is the default number
+- Scenario 1:  When user hasn’t specified a number, 32 is the default number
   - **Given** User searched for events in a city
   - **When** user does not specify an amount of events
   - **Then** user wiil have 32 events as default per city
-- Sscenario 2: User can change the number of events they want to see
+- Scenario 2: User can change the number of events they want to see
   - **Given** user opened the search results query
   - **When** user changes the default number
   - **Then** the established number of events will be changed 
@@ -87,11 +87,11 @@ As a user
 I should be able to connect to the app without internet
 So that I can still use my app.
 
-- Sscenario 1: Show cached data when there’s no internet connection
+- Scenario 1: Show cached data when there’s no internet connection
   - **Given** the did not have internet connection
   - **When** the data is cached
   - **Then** the data will be shown
-- Sscenario 2: Show error when user changes the settings (city, time range)
+- Scenario 2: Show error when user changes the settings (city, time range)
   - **Given** the user opened the settings menu
   - **When** the user changes the settings
   - **Then** an error will be shown
@@ -102,7 +102,7 @@ As a user
 I should be able to see displayed data
 So that it is easier to understand
 
-- Sscenario 1:  Show a chart with the number of upcoming events in each city.
+- Scenario 1:  Show a chart with the number of upcoming events in each city.
   - **Given** user selected a city
   - **When** user clicks on city's events button
   - **Then** a chart list of upcoming events will be displayed  in the city
