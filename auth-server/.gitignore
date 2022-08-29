@@ -1,0 +1,9 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+#environment variables (This will ensure your API secrets aren’t publicly available in your GitHub account.)
+config.json 
