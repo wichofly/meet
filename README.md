@@ -10,6 +10,10 @@ To build a serverless, progressive web application (PWA) with React using a test
 development (TDD) technique. The application uses the Google Calendar API to fetch
 upcoming events.
 
+## API used
+
+[Google Calender API](https://developers.google.com/calendar)
+
 ## User Stories
 
 1. As a user, I would like to be able to filter events by city so that I can see the list of events
