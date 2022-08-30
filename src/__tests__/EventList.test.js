@@ -3,14 +3,11 @@ import { shallow } from 'enzyme';
 
 import EventList from '../EventList';
 import Event from '../Event';
+import { mockData } from '../mock-data';
 
 describe('<EventList /> component', () => {
-  let EventListWrapper;
-  beforeAll(() => {
-    EventListWrapper = shallow(<EventList events={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]} />);
-  })
-
   test('render correct number of events', () => {
-    expect(EventListWrapper.find(Event)).toHaveLength(4);
+    const EventListWrapper = shallow(<EventList events={mockData} />);
+    expect(EventListWrapper.find(Event)).toHaveLength(mockData.length);
   });
 });

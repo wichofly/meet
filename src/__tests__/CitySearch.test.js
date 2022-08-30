@@ -12,11 +12,12 @@ describe('<CitySearch /> component', () => {
     locations = extractLocations(mockData);
     CitySearchWrapper = shallow(<CitySearch locations={locations} />);
   });
-
+  // scenario 1
   test('render text input', () => {
     expect(CitySearchWrapper.find('.city')).toHaveLength(1);
   });
 
+  // scenario 2
   test('render a list of suggestions', () => {
     expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1)
   })
@@ -56,5 +57,14 @@ describe('<CitySearch /> component', () => {
     });
     // toEqual() function to compare two arrays because the values being compared are categorized as complex data types (e.g., objects, arrays, and functions).
     expect(CitySearchWrapper.state("suggestions")).toEqual(filteredLocations);
+  });
+
+  // scenario 3
+  test("selecting a suggestion should change query state", () => {
+    CitySearchWrapper.setState({
+      query: 'Berlin'  });
+    const suggestions = CitySearchWrapper.state('suggestions');
+    CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+    expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
   });
 });
