@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export class Event extends Component {
   toggleEventDetails = () => {
@@ -18,7 +18,7 @@ export class Event extends Component {
           </p>
           {this.state.show && (
             <>
-              <h2 className="event-about-title">About event</h2>
+              <h2 className="event-about-title">About event:</h2>
               <p className="event-description">{event.description}</p>
               <a
                 href={event.htmlLink}
@@ -47,7 +47,7 @@ export class Event extends Component {
           )}
         </div>
       </>
-    )
+    );
   }
 }
 
