@@ -6,7 +6,9 @@ class NumberOfEvents extends Component {
     this.setState({ numOfEvents: value });
   };
 
-  state = { numOfEvents: 32 };
+  state = { 
+    numOfEvents: 32 
+  };
 
   render() {
     return (

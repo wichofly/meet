@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CitySearch extends Component { 
+class CitySearch extends Component {
 
   // The state needs to be changed whenever the textbox changes.
   handleInputChanged = (event) => {
