@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class CitySearch extends Component {
+  state = {
+    query: '',
+    suggestions: [],
+    showSuggestions: undefined
+  };
 
   // The state needs to be changed whenever the textbox changes.
   handleInputChanged = (event) => {
@@ -13,15 +18,11 @@ class CitySearch extends Component {
 
   handleItemClicked = (suggestion) => {
     this.setState({
-      query: suggestion
+      query: suggestion,
+      showSuggestions: false
     });
 
     this.props.updateEvents(suggestion);
-  };
-
-  state = {
-    query: '',
-    suggestions: []
   };
 
   render() {
@@ -33,8 +34,9 @@ class CitySearch extends Component {
           value={this.state.query}
           // detect whether any textual changes have been made on the input:
           onChange={this.handleInputChanged}
+          onFocus={() => { this.setState({ showSuggestions: true }) }}
         />
-        <ul className="suggestions">
+        <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (
             <li
               key={suggestion}
