@@ -31,6 +31,7 @@ class CitySearch extends Component {
         <input
           type="text"
           className="city"
+          placeholder="Search a City"
           value={this.state.query}
           // detect whether any textual changes have been made on the input:
           onChange={this.handleInputChanged}

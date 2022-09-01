@@ -1,12 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
-
-.App {
-  text-align: center;
-  padding: 2% 5%;
-}
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 .App * {
   box-sizing: border-box;
+}
+
+.App {
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  padding: 2% 5%;
+  background-image: linear-gradient(to bottom, #eab 35%, #5290f9 95%);
+  color: #333;
 }
 
 ul {
@@ -52,6 +55,7 @@ input[type="number"] {
 }
 
 .suggestions {
+  background-color: aliceblue;
   width: 250px;
   position: absolute;
   z-index: 2;
@@ -79,12 +83,15 @@ input[type="number"] {
 }
 
 .event {
+  background-color: aliceblue;
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: width 0.6s linear;
 }
 
 .details-btn {
