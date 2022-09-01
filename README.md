@@ -63,7 +63,7 @@ So that I can see the information of events of my interest and close it.
 
 - Scenario 2: User can expand an event to see its details
   - **Given** user clicked on an event button
-  - **When** user wnat to know more details about the event
+  - **When** user want to know more details about the event
   - **Then** the details for the event will shown
 - Scenario 3: User can collapse an event to hide its details
   - **Given** event details were opened
@@ -81,7 +81,7 @@ So that I can make a better decision on which one to attend.
   - **When** user does not specify an amount of events
   - **Then** user wiil have 32 events as default per city
 - Scenario 2: User can change the number of events they want to see
-  - **Given** user opened the search results query
+  - **Given** user opened the main page
   - **When** user changes the default number
   - **Then** the established number of events will be changed 
 
