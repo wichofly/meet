@@ -14,7 +14,6 @@ defineFeature(feature, test => {
   test('An event element is collapsed by default', ({ given, when,
     then }) => {
     let AppWrapper;
-    let EventWrapper;
     given('the main page was opened', () => {
       AppWrapper = mount(<App />)
     });
@@ -24,8 +23,14 @@ defineFeature(feature, test => {
       expect(AppWrapper.find('.event')).toHaveLength(mockData.length)
     });
 
+    // ok!
     then('event detailss will collapse', () => {
-     expect(EventWrapper.state('.suggestions')).toBe(false)
+      AppWrapper.update();
+      let EventWrapper = AppWrapper.find(Event);
+      EventWrapper.forEach((event) => expect(event.state('show')).toBe(false));
+      expect(EventWrapper.find('.event .event-showDetails-btn')).toHaveLength(
+        mockData.length
+      );
     });
   });
 
