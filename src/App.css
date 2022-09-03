@@ -8,7 +8,7 @@
   font-family: 'Muli', sans-serif;
   text-align: center;
   padding: 2% 5%;
-  background-color: #54BAB9 ;
+  background-color: #54BAB9;
   color: #FEF9EF;
 }
 
@@ -17,11 +17,11 @@ ul {
   list-style: none;
 }
 
-.EventList {
+/* .EventList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 10px;
-}
+} */
 
 .event-showDetails-btn {
   cursor: pointer;
@@ -32,7 +32,23 @@ ul {
   color: #FEF9EF;
   font-size: medium;
   border-radius: 5px;
- }
+}
+
+.event-hideDetails-btn {
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 5px;
+  margin-left: 180px;
+  background-color: lightcoral;
+  color: #FEF9EF;
+  font-size: small;
+  border-radius: 5px;
+}
+
+a {
+  color: lightcoral;
+}
 
 p {
   margin: 5px 0;
@@ -143,14 +159,14 @@ input[type="number"] {
   width: 200px;
   /* margin: 20px auto; */
   margin-top: 50px;
- }
+}
 
 .button-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 20px;
-  font-family: sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 .Alert {
