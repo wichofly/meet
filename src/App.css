@@ -17,11 +17,11 @@ ul {
   list-style: none;
 }
 
-/* .EventList {
+.EventList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   column-gap: 10px;
-} */
+}
 
 .event-showDetails-btn {
   cursor: pointer;
@@ -258,5 +258,16 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 500px) {
+  .EventList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 700px) {
+  .EventList {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
