@@ -87,7 +87,7 @@ export const getEvents = async () => {
   // If they are offline, the stored event list is loaded, parsed, and returned as events.
   // it is about getAccessToken() because you don’t need to check for an access token if the user is offline.
   if (!navigator.onLine) {
-    const data = localStorage.getItems('lastEvents');
+    const data = localStorage.getItem('lastEvents');
     NProgress.done();
     return data ? JSON.parse(data).events : [];
   }
@@ -100,8 +100,8 @@ export const getEvents = async () => {
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
-      localStorage.setItem("lastEvents", JSON.stringify(result.data));
-      localStorage.setItem("locations", JSON.stringify(locations));
+      localStorage.setItem('lastEvents', JSON.stringify(result.data));
+      localStorage.setItem('locations', JSON.stringify(locations));
     }
     NProgress.done();
     return result.data.events;
