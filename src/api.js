@@ -83,6 +83,15 @@ export const getEvents = async () => {
     return mockData;
   }
 
+  // In the code below, the line !navigator.onLine checks whether the user is offline, but this only works if there’s no internet.
+  // If they are offline, the stored event list is loaded, parsed, and returned as events.
+  // it is about getAccessToken() because you don’t need to check for an access token if the user is offline.
+  if (!navigator.onLine) {
+    const data = localStorage.getItems('lastEvents');
+    NProgress.done();
+    return data ? JSON.parse(data).events : [];
+  }
+
   const token = await getAccessToken();
 
   if (token) {
