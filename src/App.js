@@ -7,6 +7,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
+import { WarningAlert } from './Alert'
 // import { mockData } from "./mock-data";
 
 
@@ -16,21 +17,40 @@ class App extends Component {
     locations: [],
     numberOfEvents: 32,
     selectedLocation: 'all',
-    showWelcomeScreen: undefined
+    showWelcomeScreen: undefined,
+    warningText: ''
   }
 
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    let isTokenValid;
+    if (accessToken && !navigator.onLine) {
+      isTokenValid = true;
+    } else {
+      isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    }
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
     if ((code || isTokenValid) && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
+          this.setState({
+            events: events.slice(0, this.state.numberOfEvents),
+            locations: extractLocations(events),
+          });
         }
+      });
+    }
+
+    if (!navigator.onLine) {
+      this.setState({
+        warningText: "Your're offline! The data was loaded from the cache.",
+      });
+    } else {
+      this.setState({
+        warningText: '',
       });
     }
   }
@@ -68,6 +88,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <WarningAlert text={this.state.warningText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents} />

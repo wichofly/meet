@@ -2,6 +2,7 @@ import { mockData } from "./mock-data";
 
 import axios from 'axios';
 import NProgress from 'nprogress';
+import './nprogress.css';
 
 /**
  *
@@ -18,16 +19,17 @@ export const extractLocations = (events) => {
 };
 
 export const checkToken = async (accessToken) => {
-  const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  )
-    .then((res) => res.json())
-    .catch((error) => error.json());
-
-  return result;
+  try {
+    const result = await fetch(
+      `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    )
+    return await result.json();
+  } catch (error) {
+    error.json();
+  }
 };
 
-// this function does is check whether there’s a path, then build the URL with the current path (or build the URL without a path using window.history.pushState()).
+// this function checks whether there’s a path, then build the URL with the current path (or build the URL without a path using window.history.pushState()).
 const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {
     var newurl =
@@ -47,7 +49,9 @@ const getToken = async (code) => {
   try {
     const encodeCode = encodeURIComponent(code);
 
-    const response = await fetch('https://cccdyv5sxf.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
+    const response = await fetch('https://cccdyv5sxf.execute-api.eu-central-1.amazonaws.com/dev/api/token' + 
+    '/' + encodeCode);
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
@@ -57,7 +61,7 @@ const getToken = async (code) => {
   } catch (error) {
     error.json();
   }
-}
+};
 
 // const getToken = async (code) => {
 //   const encodeCode = encodeURIComponent(code);
@@ -96,7 +100,9 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = 'https://cccdyv5sxf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
+    const url = 'https://cccdyv5sxf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + 
+    '/' + token;
+    
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
