@@ -1,8 +1,8 @@
 # Meet App
 
 ## Description
-
-The App displays a list of upcoming events in the city and time of the user's choice. It will also be available for users to use when they are offline.
+This is a Serverless, Progressive Web Application (APP) with React, using software development testing methods (TDD and  BDD) to shape the code.
+The App displays a list of upcoming events in many cities and time of the user's choice. It is also available for users to use when they are offline.
 
 ## Objective
 
@@ -13,6 +13,23 @@ upcoming events.
 ## API used
 
 [Google Calender API](https://developers.google.com/calendar)
+
+## Tech used  
+- React
+- Test-driven development (TDD)
+  - Jest
+  - Shallow and Full Rendering API with Enzyme 
+- Behaviour-driven development (BDD)
+  - Jest-Cucumber
+  - Puppeteer
+- OAuth2 authentication
+- Serverless Fuction (AWS Lambda)
+- Progressive Web Application (PWA)
+- Continiuos Integration (CI)
+- Contiious Delivery (CD)
+- Performance monitoring with Atatus
+- Object-Oriented Programming (OOP) to create alerts
+- Recharts library to add charts
 
 ## User Stories
 
@@ -110,3 +127,8 @@ So that it is easier to understand
   - **Given** user selected a city
   - **When** user clicks on city's events button
   - **Then** a chart list of upcoming events will be displayed  in the city
+
+
+## Links 
+- [Github Code](https://github.com/wichofly/meet.git)
+- App hosted on [Github](https://wichofly.github.io/meet/)
